@@ -33,4 +33,12 @@ def make_GUI(self):
             row.append(cell_data)
         self.cells.append(row)
     
-    #make score header
+    # make score header
+    score_frame = tk.Frame(self)
+    score_frame.place(relx=0.5, y=45, anchor="center")
+    tk.Label(
+        text="Score",
+        font=c.SCORE_LABEL_FONT
+    ).grid(row=0)
+    sef.score_label = tk.Label(score_frame, text="0", font=c.SCORE_FONT)
+    self.score_label.grid(row=1)
