@@ -174,6 +174,27 @@ def update_GUI(self):
         self.update_GUI()
 
     def up(self, event):
-
+        self.transpose()
+        self.stack()
+        self.combine()
+        self.stack()
+        self.transpose()
+        self.add_new_tile()
+        self.update_GUI()
     
     def down(self, event):
+        self.transpose()
+        self.reverse()
+        self.stack()
+        self.combine()
+        self.stack()
+        self.reverse()
+        self.transpose()
+        self.add_new_tile()
+        self.update_GUI()
+
+    #Check if game is over (Win/Lose)
+    def game_over(self):
+        if any(2048 in row for row in self.matrix):
+            game_over_frame = tk.frame(self.main_grid, borderwidth=2)
+            game_over_frame.palce(relx=0.5, rely=0)
