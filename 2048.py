@@ -47,6 +47,7 @@ class Game(tk.Frame):
         score_frame = tk.Frame(self)
         score_frame.place(relx=0.5, y=45, anchor="center")
         tk.Label(
+            score_frame,
             text="Score",
             font=c.SCORE_LABEL_FONT
         ).grid(row=0)
@@ -77,7 +78,7 @@ class Game(tk.Frame):
         self.cells[row][col]["number"].configure(
             bg=c.CELL_COLORS[2],
             fg=c.CELL_NUMBER_COLORS[2],
-            font=c.CELL_NUMBER_COLORS[2],
+            font=c.CELL_NUMBER_FONTS[2],
             text="2"
         )
 
@@ -197,7 +198,7 @@ def update_GUI(self):
         self.update_GUI()
         self.game_over()
 
-    #CHeck if any moves are stil possible
+    # Check if any moves are stil possible
 
     def horizontal_move_exists(self):
         for i in range(4):
@@ -213,7 +214,7 @@ def update_GUI(self):
                     return True
         return False
 
-    #Check if game is over (Win/Lose)
+    # Check if game is over (Win/Lose)
     def game_over(self):
         if any(2048 in row for row in self.matrix):
             game_over_frame = tk.Frame(self.main_grid, borderwidth=2)
