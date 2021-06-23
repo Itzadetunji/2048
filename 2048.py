@@ -118,7 +118,7 @@ def reverse(self):
 def transpose(self):
     new_matrix = [[0] * 4 for _ in range(4)]
     for i in range(4):
-        for j inr range(4):
+        for j in range(4):
             new_matrix[i][j] = self.matrix[j][i]
     self.matrix = new_matrix
 
@@ -206,7 +206,7 @@ def update_GUI(self):
                     return True
         return False
 
-    def vertical_move_exists(self:
+    def vertical_move_exists(self):
         for i in range(3):
             for j in range(4):
                 if self.matrix[i][j] == self.matrix[i + 1][j]:
@@ -216,8 +216,8 @@ def update_GUI(self):
     #Check if game is over (Win/Lose)
     def game_over(self):
         if any(2048 in row for row in self.matrix):
-            game_over_frame = tk.frame(self.main_grid, borderwidth=2)
-            game_over_frame.palce(relx=0.5, rely=0.5, anchor="center")
+            game_over_frame = tk.Frame(self.main_grid, borderwidth=2)
+            game_over_frame.place(relx=0.5, rely=0.5, anchor="center")
             tk.Label(
                 game_over_frame,
                 text="You win!",
@@ -226,8 +226,8 @@ def update_GUI(self):
                 font=c.GAME_OVER_FONT
             ).pack()
         elif not any(0 in row for row in self.matrix) and not self.horizontal_move_exists() and not self.vertical_move_exists():
-            game_over_frame = tk.frame(self.main_grid, borderwidth=2)
-            game_over_frame.palce(relx=0.5, rely=0.5, anchor="center")
+            game_over_frame = tk.Frame(self.main_grid, borderwidth=2)
+            game_over_frame.place(relx=0.5, rely=0.5, anchor="center")
             tk.Label(
                 game_over_frame,
                 text="Game Over!",
