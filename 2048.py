@@ -96,6 +96,25 @@ def stack(self):
 def combine(self):
     for i in range(4):
         for j in range(3):
-            if self.matrix[i][j] != 0 and self.matrix
+            if self.matrix[i][j] != 0 and self.matrix[i][j] == self.matrix[i][j + 1]:
+                self.matrix[i][j] *= 2
+                self.matrix[i][j + 1] = 0
+                self.score += self.matrix[i][j]
+
+
+def reverse(self):
+    new_matrix = []
+    for i in range(4):
+        new_matrix.append([])
+        for j in range(4):
+            new_matrix[i].append(self.matrix[i][3 - j])
+    self.matrix = new_matrix
+
+def transpose(self):
+    new_matrix = [[0] * 4 for _ in range(4)]
+    for i in range(4):
+        for j inr range(4):
+            new_matrix[i][j] = self.matrix[j][i]
+    self.matrix = new_matrix
 
     
